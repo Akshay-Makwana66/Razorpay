@@ -2,7 +2,7 @@ import './App.css';
 import React,{useState} from 'react';
 
 function App() {
-  const [amount, setamount] = useState('');
+  const [amount, setamount] = useState('');  
 
   const handleSubmit = (e)=>{
     e.preventDefault();
@@ -10,19 +10,20 @@ function App() {
     alert("please enter amount");
     }else{
       var options = {
-        key: "rzp_test_ffSb2yIkIflJH9",
-        key_secret:"iExGzM7nCvTIo41Rk4iV9kye",
+        key: "rzp_test_j7zso0Em8uAUYB",
+        key_secret:"zggLaj6TVkCxBIJblymwdRDt",
         amount: amount *100,
         currency:"INR",
-        name:"STARTUP_PROJECTS",
-        description:"for testing purpose",
+        name:"Razorpay",
         handler: function(response){
+          console.log(response.razorpay_payment_id)
           alert(response.razorpay_payment_id);
+          
         },
         prefill: {
-          name:"Velmurugan",
-          email:"mvel1620r@gmail.com",
-          contact:"7904425033"
+          name:"Akshay Makwana",
+          email:"akshaymakwana350@gmail.com",
+          contact:"7566454431"
         },
         notes:{
           address:"Razorpay Corporate office"
@@ -37,7 +38,7 @@ function App() {
   }
   return (
     <div className="App">
-     <h2>Razorpay Payment Integration Using React</h2>
+     <h2>Razorpay Payment Integration</h2>
      <br/>
      <input type="text"placeholder='Enter Amount'value={amount}onChange={(e)=>setamount(e.target.value)} />
      <br/><br/>
